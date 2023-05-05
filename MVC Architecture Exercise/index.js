@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 
-const Mongo_URL = process.env.Mongo_URL || 'mongodb://127.0.0.1:27017/MVC_Exercise';
+const Mongo_URL = process.env.Mongo_URL || 'mongodb://127.0.0.1:27017/MVC_Exercise2';
 const PORT = process.env.PORT || 3000;
 
 // Connect to the database

@@ -2,11 +2,9 @@ const ProductModel = require('../models/productModel');
 
 const addProduct = async (req, res) => {
     const { id, name, total_qnty, category, price } = req.body
-    console.log(username, email, password);
     let productObj = {
-        id: id,
         name: name,
-        totalQuantity: total_qnty,
+        total_qnty: total_qnty,
         category: category,
         price: price
     }
@@ -19,13 +17,13 @@ const addProduct = async (req, res) => {
     }
     return res.json({
         message:"data not inserted"
-    })
+    });
     } catch (error) {
         return res.json({
             message:"Error"
-        })
+        });
     }
-}
+};
 
 const getProductList = async (req, res) => {
     try {
@@ -40,8 +38,8 @@ const getProductList = async (req, res) => {
 
 const getProductById = async (req, res) => {
     try {
-      const { id } = req.params;
-      const product = await ProductModel.findById(id);
+      
+      const product = await ProductModel.findById(req.params.id);
       if (!product) {
         return res.json({ message: 'Product not found' });
       }
@@ -57,7 +55,7 @@ const getProductById = async (req, res) => {
   const getProductByCategory = async (req, res) => {
     try {
       const { category } = req.params;
-      const product = await ProductModel.findById(category);
+      const product = await ProductModel.find({category: category});
       if (!product) {
         return res.json({ message: 'Product not found' });
       }

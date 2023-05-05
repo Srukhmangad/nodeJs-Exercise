@@ -3,11 +3,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
-    id: {
-        type: String,
-        required: true
-        },
-    
     name: {
         type: String,
         required: true
@@ -30,6 +25,6 @@ const ProductSchema = new Schema({
 
     });
 
-const ProductModel = mongoose.model('Product', ProductSchema);
+const productModel = mongoose.model('Product', ProductSchema);
 
-module.exports = ProductModel;
+module.exports = productModel;
